@@ -1,0 +1,10 @@
+const grpc = require("@grpc/grpc-js");
+const protoLoader = require("@grpc/proto-loader");
+const path = require("path");
+const packageDef = protoLoader.loadSync("/home/vaneshaa/IT_ITS/SEM_4/insist/project-finance-bot/finance.proto");
+const grpcObj = grpc.loadPackageDefinition(packageDef);
+const client = new grpcObj.FinanceService("localhost:50051", grpc.credentials.createInsecure());
+const call = client.GetHistory({ userId: "cla" });
+call.on('data', d => console.log('DATA:', d));
+call.on('error', e => console.error('ERROR:', e, e.code));
+call.on('end', () => console.log('END'));

@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+service FinanceService {
+  rpc AddTransaction (TransactionRequest) returns (TransactionResponse);
+  rpc GetSummary (SummaryRequest) returns (SummaryResponse);
+  // Fitur ke-3 & Streaming: Server-side streaming untuk mendapatkan history
+  rpc GetHistory (HistoryRequest) returns (stream HistoryResponse);
+}
+
+message TransactionRequest {
+  string user_id = 1;
+  string type = 2;
+  double amount = 3;
+  string category = 4;
+}
+
+message TransactionResponse {
+  string message = 1;
+}
+
+message SummaryRequest {
+  string user_id = 1;
+}
+
+message SummaryResponse {
+  double total_income = 1;
+  double total_expense = 2;
+  double balance = 3;
+}
+
+message HistoryRequest {
+  string user_id = 1;
+}
+
+message HistoryResponse {
+  string type = 1;
+  double amount = 2;
+  string category = 3;
+}

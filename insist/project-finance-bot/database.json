@@ -1,0 +1,38 @@
+{
+    "user1": {
+        "income": 0,
+        "expense": 0,
+        "transactions": []
+    },
+    "cla": {
+        "income": 3500000.0,
+        "expense": 1000000.0,
+        "transactions": [
+            {
+                "type": "income",
+                "amount": 1500000.0,
+                "category": "income"
+            },
+            {
+                "type": "expense",
+                "amount": 500000.0,
+                "category": "baju"
+            },
+            {
+                "type": "income",
+                "amount": 1000000.0,
+                "category": "income"
+            },
+            {
+                "type": "income",
+                "amount": 1000000.0,
+                "category": "income"
+            },
+            {
+                "type": "expense",
+                "amount": 500000.0,
+                "category": "makan"
+            }
+        ]
+    }
+}
